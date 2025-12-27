@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
 
 <head>
   <meta charset="utf-8">
@@ -23,520 +23,100 @@
   <link href="{% static 'web/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'web/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Main CSS -->
   <link href="{% static 'web/css/main.css' %}" rel="stylesheet">
 </head>
 
-
 <body class="index-page">
 
-  <header id="header" class="header sticky-top">
-
-    <div class="topbar d-flex align-items-center dark-background">
-      <div class="container">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-whatsapp d-flex align-items-center">
-            <span>
-              <a href="https://wa.me/5493755248005" target="_blank">WhatsApp 1</a>
-            </span>
-          </i>
-
-          <i class="bi bi-whatsapp d-flex align-items-center ms-4">
-            <span>
-              <a href="https://wa.me/5493755171182" target="_blank">WhatsApp 2</a>
-            </span>
-          </i>
-
-          <i class="bi bi-instagram d-flex align-items-center ms-4">
-            <span>
-              <a href="https://www.instagram.com/cabanas_maylara" target="_blank">Instagram</a>
-            </span>
-          </i>
-        </div>
+<header id="header" class="header sticky-top">
+  <div class="topbar d-flex align-items-center dark-background">
+    <div class="container">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-whatsapp"><a href="https://wa.me/5493755248005" target="_blank"> WhatsApp 1</a></i>
+        <i class="bi bi-whatsapp ms-4"><a href="https://wa.me/5493755171182" target="_blank"> WhatsApp 2</a></i>
+        <i class="bi bi-instagram ms-4"><a href="https://www.instagram.com/cabanas_maylara" target="_blank"> Instagram</a></i>
       </div>
-    </div><!-- End Top Bar -->
+    </div>
+  </div>
 
-    <div class="branding d-flex align-items-cente">
-      <div class="container position-relative d-flex align-items-center justify-content-between">
+  <div class="branding">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+        <i class="bi bi-house-door-fill me-2"></i>
+        <h1 class="sitename mb-0">Cabañas Maylara</h1>
+      </a>
+      <span class="text-white">El Soberbio, Misiones</span>
+    </div>
+  </div>
+</header>
 
-        <!-- Logo con ícono -->
-        <a href="{% url 'home' %}" class="logo d-flex align-items-center">
-          <i class="bi bi-house-door-fill me-2" style="font-size: 1.5rem; color: #fff;"></i>
-          <h1 class="sitename mb-0">Cabañas Maylara</h1>
+<main class="main">
+
+<!-- HERO -->
+<section class="section hotel-hero">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6">
+        <h1>En El Soberbio, tu lugar de descanso.</h1>
+        <p class="lead">
+          Disfrutá de una estadía única en nuestras cabañas en El Soberbio, Misiones.
+        </p>
+
+        <div class="hero-features">
+          <span><i class="bi bi-wifi"></i> Wi-Fi</span>
+          <span><i class="bi bi-snow"></i> Aire</span>
+          <span><i class="bi bi-droplet"></i> Ducha caliente</span>
+        </div>
+
+        <a href="https://maps.app.goo.gl/9vGyxHrco6BgaMkCA" target="_blank" class="btn btn-primary">
+          <i class="bi bi-geo-alt"></i> Ubicación
         </a>
+      </div>
 
-        <!-- Ubicación al final de la barra -->
-        <span class="text-white">El Soberbio, Misiones</span>
+      <div class="col-lg-6 text-center">
+        <video autoplay muted loop playsinline class="img-fluid rounded">
+          <source src="{% static 'web/videos/panoramica.mp4' %}" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="swiper init-swiper">
+      <div class="swiper-wrapper">
+
+        {% for i in "1234567891011121314"|make_list %}
+        <div class="swiper-slide">
+          <img src="{% static 'web/img/cabanas/cabana' %}{{ i }}.jpeg" class="img-fluid rounded">
+        </div>
+        {% endfor %}
 
       </div>
     </div>
-
-  </header>
-
-  <main class="main">
-
-    <!-- HERO SECTION -->
-    <section id="hotel-hero" class="hotel-hero section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 align-items-center">
-
-          <!-- TEXTO -->
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="hero-content">
-              <h1>En El Soberbio, tu lugar de descanso.</h1>
-
-              <p class="lead">
-                Disfrutá de una estadía única en nuestras cabañas en El Soberbio, Misiones, entrada a Los Saltos del Mocona,
-                a solo 8 km del Pueblo, sobre ruta, rodeadas de naturaleza y pensadas para el descanso,
-                con cómodos espacios, pileta, Wi-Fi y todas las comodidades.
-              </p>
-
-              <div class="hero-features">
-                <div class="feature-item">
-                  <i class="bi bi-wifi"></i>
-                  <span>Wi-Fi libre</span>
-                </div>
-                <div class="feature-item">
-                  <i class="bi bi-snow"></i>
-                  <span>Aire acondicionado</span>
-                </div>
-                <div class="feature-item">
-                  <i class="bi bi-droplet"></i>
-                  <span>Ducha caliente</span>
-                </div>
-              </div>
-
-              <div class="hero-buttons">
-                <a href="https://maps.app.goo.gl/9vGyxHrco6BgaMkCA"
-                   target="_blank"
-                   rel="noopener"
-                   class="btn btn-primary">
-                  <i class="bi bi-geo-alt"></i> Ubicación
-                </a>
-
-                <a href="https://wa.me/5493755171182"
-                   target="_blank"
-                   rel="noopener"
-                   class="btn btn-outline">
-                  <i class="bi bi-whatsapp"></i> WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- VIDEO -->
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="hero-images">
-              <div class="main-image" style="overflow: hidden; border-radius: 8px; max-width: 50%; margin: 0 auto;">
-                <video autoplay muted loop playsinline class="img-fluid" style="width: 100%; height: auto;">
-                  <source src="{% static 'videos/panoramica.mp4' %}" type="video/mp4">
-                  Tu navegador no soporta la reproducción de video.
-                </video>
-              </div>
-
-              <div class="floating-card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="card-content">
-                  <h6>Naturaleza y descanso</h6>
-                  <p>
-                    Un espacio pensado para desconectarte y disfrutar de la tranquilidad
-                    de El Soberbio, en el acceso a los Saltos del Moconá.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- STATS -->
-        <div class="hero-stats mt-5" data-aos="fade-up">
-          <div class="row text-center">
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <span class="stat-number purecounter"
-                      data-purecounter-start="0"
-                      data-purecounter-end="3"
-                      data-purecounter-duration="1">3</span>
-                <span class="stat-label">Cabañas equipadas</span>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <span class="stat-number purecounter"
-                      data-purecounter-start="0"
-                      data-purecounter-end="8"
-                      data-purecounter-duration="1">8</span>
-                <span class="stat-label">Km de El Soberbio</span>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <span class="stat-number purecounter"
-                      data-purecounter-start="0"
-                      data-purecounter-end="365"
-                      data-purecounter-duration="1">365</span>
-                <span class="stat-label">Días del año</span>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <span class="stat-number purecounter"
-                      data-purecounter-start="0"
-                      data-purecounter-end="24"
-                      data-purecounter-duration="1">24</span>
-                <span class="stat-label">Horas de tranquilidad</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CABAÑAS / AIRBNB SECTION -->
-    <section id="cabanas" class="section bg-light">
-      <div class="container" data-aos="fade-up">
-
-        <!-- Título -->
-        <div class="section-title text-center mb-5">
-          <span class="description-title">Nuestras cabañas</span>
-          <h2>Cabañas disponibles</h2>
-          <h5>Miralas a detalle en Airbnb</h5>
-          <p>
-            Contamos con tres cabañas totalmente equipadas para que disfrutes
-            la tranquilidad y la naturaleza de El Soberbio. 2 de ellas con capacidad para 4 personas
-            y una más grande para hasta 6 personas.
-          </p>
-        </div>
-
-        <!-- AIRBNB EMBEDS -->
-        <div class="row gy-4 justify-content-center">
-
-          <!-- Cabaña 1 -->
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="airbnb-embed-frame"
-                 data-id="1366875558545109387"
-                 data-view="home"
-                 data-hide-price="true"
-                 data-hide-reviews="true"
-                 style="width:100%; max-width:450px; height:300px; margin:auto;">
-              <a href="https://www.airbnb.com.ar/rooms/1366875558545109387" target="_blank">
-                Mostrar en Airbnb
-              </a>
-              <script async src="https://www.airbnb.com.ar/embeddable/airbnb_jssdk"></script>
-            </div>
-          </div>
-
-          <!-- Cabaña 2 -->
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="airbnb-embed-frame"
-                 data-id="1364684742133060758"
-                 data-view="home"
-                 data-hide-price="true"
-                 data-hide-reviews="true"
-                 style="width:100%; max-width:450px; height:300px; margin:auto;">
-              <a href="https://www.airbnb.com.ar/rooms/1364684742133060758" target="_blank">
-                Mostrar en Airbnb
-              </a>
-            </div>
-          </div>
-
-          <!-- Cabaña 3 -->
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="airbnb-embed-frame"
-                 data-id="1207971923161884856"
-                 data-view="home"
-                 data-hide-price="true"
-                 data-hide-reviews="true"
-                 style="width:100%; max-width:450px; height:300px; margin:auto;">
-              <a href="https://www.airbnb.com.ar/rooms/1207971923161884856" target="_blank">
-                Mostrar en Airbnb
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- /CABAÑAS / AIRBNB SECTION -->
-
-    <!-- BOOKING SECTION -->
-    <section id="booking" class="section">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title text-center mb-4">
-          <span class="description-title">Reservas</span>
-          <h2>También estamos en Booking</h2>
-          <p>Podés consultar nuestra pagina en Booking.com</p>
-        </div>
-
-        <div class="text-center">
-          <a href="https://www.booking.com/hotel/ar/cabanas-maylara-el-soberbio.es.html?aid=2276475&label=msn-Zd87i8fccD7f6KzaeIReRw-80470646113768%3Atikwd-80470794009868%3Aloc-8%3Aneo%3Amtb%3Alp143267%3Adec%3Aqscaba%C3%B1as%20malaga%20airbnb-Share-vczzFau%401766596343&sid=ea7cb8e8da5727ac08b42462a910c85a&dest_id=-988043&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1766605880&srpvid=6f6c8b97b99801e5&type=total&ucfs=1&"
-             target="_blank"
-             rel="noopener"
-             class="btn btn-primary btn-lg">
-            <i class="bi bi-calendar-check me-2"></i>
-            Ver en Booking
-          </a>
-        </div>
-
-      </div>
-    </section>
-    <!-- /BOOKING SECTION -->
-
-    <!-- Gallery Showcase Section -->
-    <section id="gallery-showcase" class="gallery-showcase section">
-      <div class="section-title text-center mb-4">
-        <span class="description-title">Galeria</span>
-        <h2>Nuestra galeria de fotos</h2>
-        <p>Mira algunas imagenes de nuestro complejo de cabañas</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="gallery-carousel swiper init-swiper" data-aos="fade-up" data-aos-delay="200">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 20000,
-              "autoplay": {
-                "delay": 0,
-                "disableOnInteraction": false
-              },
-              "slidesPerView": 1,
-              "spaceBetween": 20,
-              "centeredSlides": true,
-              "allowTouchMove": false,
-              "loopedSlides": 14,
-              "breakpoints": {
-                "576": { "slidesPerView": 2, "centeredSlides": false },
-                "768": { "slidesPerView": 3, "centeredSlides": false },
-                "992": { "slidesPerView": 4, "centeredSlides": false },
-                "1200": { "slidesPerView": 5, "centeredSlides": false }
-              }
-            }
-          </script>
-            <div class="swiper-wrapper">
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana1.jpeg' %}" alt="Cabaña 1" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana1.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana2.jpeg' %}" alt="Cabaña 2" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana2.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana3.jpeg' %}" alt="Cabaña 3" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana3.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana4.jpeg' %}" alt="Cabaña 4" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana4.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana5.jpeg' %}" alt="Cabaña 5" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana5.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana6.jpeg' %}" alt="Cabaña 6" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana6.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana7.jpeg' %}" alt="Cabaña 7" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana7.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana8.jpeg' %}" alt="Cabaña 8" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana8.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana9.jpeg' %}" alt="Cabaña 9" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana9.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana10.jpeg' %}" alt="Cabaña 10" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana10.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana11.jpeg' %}" alt="Cabaña 11" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana11.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana12.jpeg' %}" alt="Cabaña 12" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana12.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana13.jpeg' %}" alt="Cabaña 13" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana13.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="gallery-item">
-                  <img src="{% static 'img/cabanas/cabana14.jpeg' %}" alt="Cabaña 14" class="img-fluid" loading="lazy">
-                  <a href="{% static 'img/cabanas/cabana14.jpeg' %}" class="gallery-overlay glightbox">
-                    <i class="bi bi-eye"></i>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-
-        </div>
-      </div>
-
-    </section><!-- /Gallery Showcase Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative dark-background">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-
-          <!-- Logo y Acerca de -->
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="{% url 'home' %}" class="logo d-flex align-items-center">
-              <span class="sitename">Cabañas Maylara</span>
-            </a>
-            <p class="pt-3">Disfrutá de nuestras cabañas en un entorno natural y relajante.</p>
-          </div>
-
-          <!-- Ubicación -->
-          <div class="col-lg-2 col-md-3 footer-links mt-3 mt-lg-0">
-            <h4>Ubicación</h4>
-            <ul>
-              <li>El Soberbio, Misiones</li>
-              <li>Ruta Provinicial 13 km 8</li>
-            </ul>
-          </div>
-
-          <!-- Contactos -->
-          <div class="col-lg-2 col-md-3 footer-links mt-3 mt-lg-0">
-            <h4>Contactos</h4>
-            <ul>
-              <li><a href="https://wa.me/5493755248005" target="_blank">Whatsapp 1</a></li>
-              <li><a href="https://wa.me/5493755171182" target="_blank">Whatsapp 2</a></li>
-            </ul>
-          </div>
-
-          <!-- Redes Sociales -->
-          <div class="col-lg-2 col-md-3 footer-links mt-3 mt-lg-0">
-            <h4>Redes Sociales</h4>
-            <ul>
-              <li><a href="https://www.instagram.com/cabanas_maylara" target="_blank">Instagram</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright text-center">
-      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
-        <div class="d-flex flex-column align-items-center align-items-lg-start">
-          <div>© Copyright <strong><span>Cabañas Maylara</span></strong>. Todos los derechos reservados</div>
-        </div>
-
-        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href="https://www.instagram.com/cabanas_maylara" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5493755171182" target="_blank"><i class="bi bi-whatsapp"></i></a>
-        </div>
-
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
-  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-
-  <!-- Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer dark-background text-center p-4">
+  © {{ now|date:"Y" }} Cabañas Maylara
+</footer>
+
+<!-- Vendor JS -->
+<script src="{% static 'web/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'web/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'web/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'web/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'web/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+<!-- Main JS -->
+<script src="{% static 'web/js/main.js' %}"></script>
 
 </body>
 </html>
